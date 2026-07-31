@@ -111,8 +111,9 @@
       <?php endif; ?>
     </nav>
   </footer>
-
-  <?php
+</article> <!-- 把闭合标签移到这里，让文章卡片在这里结束 -->
+  
+<?php
   // Comments
   $commentSystem = $this->options->commentSystem;
   if ($commentSystem != 'none'):
@@ -196,6 +197,6 @@
           integrity="sha384-Nfw2UPOp2WaWfAjGXccSL8qKx4KWXN9NUonXtPcotBXKSqHMyNWrahYzDzIXhpTy"
           crossorigin="anonymous"></script>
   <?php endif; ?>
-</article>
+
 
 <?php $this->need('footer.php'); ?>
