@@ -1,0 +1,22 @@
+/* MathJax (LaTeX) styles — loaded only when math is enabled. */
+
+mjx-container[display="true"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+  max-width: 100%;
+}
+
+mjx-container {
+  color: inherit;
+}
+
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
