@@ -1053,39 +1053,39 @@ img {
 
 /* 2. 每一条评论变成一个独立的“孤岛卡片” */
 .comment-body {
+  position: relative; /* 【关键】给右上角的回复按钮做绝对定位的参考坐标 */
   margin-bottom: 1.5rem;
   padding: 1.5rem;
-  background: var(--color-surface); /* 实体白底 */
+  background: var(--color-surface);
   border-radius: var(--radius);
   border: 1px solid var(--color-border-light);
-  box-shadow: var(--shadow-card); /* 卡片阴影 */
+  box-shadow: var(--shadow-card);
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
-/* 鼠标悬停时，孤岛会微微浮起 */
 .comment-body:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-card-hover);
 }
 
-/* 楼中楼嵌套：也是小孤岛，通过左侧墨绿边线和缩进区分 */
+/* 楼中楼嵌套：恢复正常的正数间距，避免向上覆盖遮挡 */
 .comment-children {
   margin-left: 2rem;
-  margin-top: -0.5rem;
+  margin-top: 1rem; /* 改为正数，拉开子评论距离 */
   margin-bottom: 1.5rem;
 }
 
 .comment-children .comment-body {
   padding: 1.25rem;
-  border-left: 4px solid var(--color-accent); /* 核心主题色边线 */
+  border-left: 4px solid var(--color-accent);
 }
 
-/* 头像与名字区域 */
+/* 头像与名字区域 (靠左浮动) */
 .comment-author {
+  float: left;
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 0.4rem;
 }
 
 .comment-author .avatar {
@@ -1104,10 +1104,11 @@ img {
   font-size: 1.1rem;
 }
 
-/* 评论时间 */
+/* 评论时间 (同行显示，利用同等行高完美垂直居中) */
 .comment-meta {
-  margin-left: 3.55rem; /* 对齐名字 (44px + gap) */
-  margin-bottom: 0.8rem;
+  float: left;
+  margin-left: 0.8rem;
+  line-height: 44px; /* 与头像高度保持一致 */
 }
 
 .comment-meta a {
@@ -1115,8 +1116,10 @@ img {
   color: var(--color-text-tertiary);
 }
 
-/* 评论内容 */
+/* 评论内容 (清除浮动，确保文字渲染在头像和日期的正下方) */
 .comment-content {
+  clear: both;
+  padding-top: 0.5rem;
   font-size: 1.05rem;
   line-height: 1.75;
   color: var(--color-text);
@@ -1131,10 +1134,12 @@ img {
   margin-bottom: 0;
 }
 
-/* 回复按钮：变成卡片右下角的一个小标签 */
+/* 回复按钮：提取到卡片右上角，彻底解决被下方内容遮盖的问题 */
 .comment-reply {
-  margin-top: 1rem;
-  text-align: right;
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  margin-top: 0;
 }
 
 .comment-reply a {
