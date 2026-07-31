@@ -1,14 +1,14 @@
 <?php
 /**
- * Warmpaper
+ * retrofrog  - 复古老玩具主题
  *
  * A Claude-inspired Typecho theme with warm paper texture
  * Converted from hexo-theme-warmpaper
  *
- * @package Warmpaper
- * @author  finch-xu (Hexo theme) / Converted for Typecho
+ * @package retrofrog
+ * @author  dabiao2008
  * @version 1.0.0
- * @link    https://github.com/finch-xu/hexo-theme-warmpaper
+ * @link    https://github.com/dabiao2008/typecho-theme-retrofrog
  */
 
 if (!defined('__TYPECHO_ROOT_DIR__')) exit;

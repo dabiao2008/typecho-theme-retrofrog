@@ -1,6 +1,6 @@
 <?php
 /**
- * Warmpaper Theme Functions
+ * retrofrog Theme Functions
  *
  * Converted from hexo-theme-warmpaper by finch-xu
  * https://github.com/finch-xu/hexo-theme-warmpaper

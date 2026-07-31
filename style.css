@@ -4,20 +4,22 @@
    ============================================ */
 
 /* --- CSS Variables --- */
+/* --- CSS Variables (Green Toy Frog Theme) --- */
 :root {
-  --color-bg: #FAF9F7;
+  --color-bg: #F4F6F4; /* 带有微弱绿意的米灰底色 */
   --color-surface: #FFFFFF;
-  --color-surface-hover: #FDF8F4;
-  --color-code-bg: #F0EBE3;
-  --color-accent: #DA7756;
-  --color-accent-hover: #C4684A;
-  --color-text: #2D2B28;
-  --color-text-secondary: #6B6560;
-  --color-text-tertiary: #9B9490;
-  --color-border: #E5E0D8;
-  --color-border-light: #EEEAE4;
-  --grid-color: rgba(218, 119, 86, 0.07);
-  --grid-color-strong: rgba(218, 119, 86, 0.12);
+  --color-surface-hover: #F0F5F1; /* 浅绿悬停色 */
+  --color-code-bg: #EAEFEA;
+  --color-accent: #2E5C3A; /* 青蛙的主体墨绿色 */
+  --color-accent-hover: #D36C22; /* 青蛙侧面的复古橙黄色 */
+  --color-text: #2D332F;
+  --color-text-secondary: #5C6660;
+  --color-text-tertiary: #89948D;
+  --color-border: #DCE3DD;
+  --color-border-light: #E8EFE9;
+  --grid-color: rgba(46, 92, 58, 0.08); /* 极淡的墨绿色线条 */
+  --grid-color-strong: rgba(46, 92, 58, 0.15);
+
   --grid-size: 24px;
   --content-width: 800px;
   --page-width: 1200px;
@@ -58,14 +60,14 @@
   --color-surface: #2B2520;
   --color-surface-hover: #332C26;
   --color-code-bg: #15110E;
-  --color-accent: #E89576;
-  --color-accent-hover: #F0A88B;
+  --color-accent: #4CAF65; /* 暗黑模式下更亮一点的青蛙绿 */
+  --color-accent-hover: #E68A40; /* 暗黑模式下的橙色 */
+  --grid-color: rgba(76, 175, 101, 0.05); /* 暗黑模式下的浅绿线条 */
   --color-text: #EDE4D9;
   --color-text-secondary: #A8A099;
   --color-text-tertiary: #756E66;
   --color-border: #3A332C;
   --color-border-light: #2F2924;
-  --grid-color: rgba(218, 119, 86, 0.045);
   --grid-color-strong: rgba(218, 119, 86, 0.08);
   --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-card-hover: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.25);
@@ -92,16 +94,14 @@ body {
   line-height: 1.7;
   color: var(--color-text);
   background-color: var(--color-bg);
-  background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px),
-    linear-gradient(var(--grid-color-strong) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color-strong) 1px, transparent 1px);
-  background-size:
-    var(--grid-size) var(--grid-size),
-    var(--grid-size) var(--grid-size),
-    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4),
-    calc(var(--grid-size) * 4) calc(var(--grid-size) * 4);
+  /* 使用简单的复古斜线条替换原本的复杂网格 */
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 15px,
+    var(--grid-color) 15px,
+    var(--grid-color) 16px
+  );
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

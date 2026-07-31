@@ -1,14 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="-50 -55 100 110" width="512" height="563">
-  <!-- Irregular shard shape -->
-  <path fill="#C15F3C" opacity="0.15" stroke="#C15F3C" stroke-width="1.2" d="M-40,-35 L-10,-48 L25,-42 L42,-20 L38,10 L30,35 L5,42 L-25,38 L-42,15 L-44,-10Z"/>
-  <!-- Flower pattern painted on the shard -->
-  <ellipse fill="#C15F3C" cx="0" cy="-18" rx="4" ry="13" transform="rotate(0, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-16" rx="3.5" ry="11" transform="rotate(52, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-19" rx="4" ry="14" transform="rotate(100, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-15" rx="3.5" ry="10" transform="rotate(155, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-17" rx="4" ry="12" transform="rotate(205, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-18" rx="3.8" ry="13" transform="rotate(258, 0, 0)"/>
-  <ellipse fill="#C15F3C" cx="0" cy="-16" rx="3.5" ry="11" transform="rotate(310, 0, 0)"/>
-  <!-- Center dot -->
-  <circle fill="#9A4A2E" cx="0" cy="0" r="3.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <defs>
+    <!-- 为青蛙添加一点柔和的阴影以增加立体感 -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- 整体编组应用阴影 -->
+  <g filter="url(#shadow)">
+    <!-- 左眼眶 -->
+    <circle cx="65" cy="75" r="32" fill="#4CAF50" />
+    <!-- 右眼眶 -->
+    <circle cx="135" cy="75" r="32" fill="#4CAF50" />
+    
+    <!-- 脸部主体 -->
+    <ellipse cx="100" cy="120" rx="75" ry="55" fill="#4CAF50" />
+    
+    <!-- 左眼白 -->
+    <circle cx="65" cy="75" r="22" fill="#FFFFFF" />
+    <!-- 右眼白 -->
+    <circle cx="135" cy="75" r="22" fill="#FFFFFF" />
+    
+    <!-- 左眼珠 -->
+    <circle cx="65" cy="75" r="12" fill="#1C2833" />
+    <!-- 左眼高光 -->
+    <circle cx="69" cy="71" r="4" fill="#FFFFFF" />
+    
+    <!-- 右眼珠 -->
+    <circle cx="135" cy="75" r="12" fill="#1C2833" />
+    <!-- 右眼高光 -->
+    <circle cx="139" cy="71" r="4" fill="#FFFFFF" />
+    
+    <!-- 左腮红 -->
+    <ellipse cx="45" cy="125" rx="14" ry="9" fill="#388E3C" opacity="0.4" />
+    <!-- 右腮红 -->
+    <ellipse cx="155" cy="125" rx="14" ry="9" fill="#388E3C" opacity="0.4" />
+    
+    <!-- 微笑的嘴巴 -->
+    <path d="M 70 135 Q 100 165 130 135" fill="none" stroke="#1C2833" stroke-width="7" stroke-linecap="round" />
+  </g>
 </svg>
