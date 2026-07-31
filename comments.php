@@ -6,13 +6,10 @@
     <?php if ($comments->have()): ?>
         <h3 class="comments-title"><?php $this->commentsNum('暂无评论', '只有1条评论', '已有%d条评论'); ?></h3>
 
+        <!-- 清理了 Typecho 不支持的参数，保持原生结构以匹配 CSS -->
         <?php $comments->listComments(array(
             'before'        => '<ol class="comment-list">',
             'after'         => '</ol>',
-            'beforeAuthor'  => '<li class="comment-item" id="{id}">',
-            'afterAuthor'   => '</li>',
-            'beforeContent' => '<div class="comment-content">',
-            'afterContent'  => '</div>',
             'replyWord'     => '回复',
             'avatarSize'    => 48,
         )); ?>
@@ -21,8 +18,15 @@
     <?php endif; ?>
 
     <?php if ($this->allow('comment')): ?>
-    <div id="respond" class="comment-respond">
+    <!-- 关键修复：将固定的 id="respond" 改为系统动态输出的 respondId() -->
+    <div id="<?php $this->respondId(); ?>" class="comment-respond">
         <h3 class="comment-reply-title"><?php _e('添加新评论'); ?></h3>
+        
+        <!-- 引入取消回复的按钮 -->
+        <div class="cancel-comment-reply">
+            <?php $comments->cancelReply('取消回复'); ?>
+        </div>
+        
         <form method="post" action="<?php $this->commentUrl() ?>" id="comment-form" class="comment-form" role="form">
             <?php if ($this->user->hasLogin()): ?>
                 <p class="comment-user-info">
@@ -49,7 +53,6 @@
             </p>
             <p class="form-submit">
                 <button type="submit" class="submit"><?php _e('提交评论'); ?></button>
-                <?php $comments->cancelReply(); ?>
             </p>
         </form>
     </div>
