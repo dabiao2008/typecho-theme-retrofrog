@@ -1022,24 +1022,28 @@ img {
 }
 
 /* --- Comments (Typecho native) --- */
-/* --- Comments (Typecho native) --- */
+/* ============================================
+   Typecho Comments
+   ============================================ */
+
 .comments-area {
   max-width: var(--content-width);
-  margin: 2.5rem auto 0;
+  margin: 3rem auto 0;
   padding-top: 2rem;
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--color-border-light);
 }
 
 .comments-title {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.35rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
+  color: var(--color-text);
 }
 
-/* 1. 评论列表基础 */
+/* 重置原生列表样式 */
 .comment-list, 
-.comment-list ol {
+.comment-children {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -1047,45 +1051,53 @@ img {
 
 .comment-body {
   margin-bottom: 1.5rem;
+  padding: 1.25rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border-light);
+  /* 增加轻微阴影，更契合发条蛙的实体复古感 */
+  box-shadow: var(--shadow-card); 
 }
 
-/* 2. 评论主体布局 (给左侧头像留出绝对定位空间) */
-.comment-body > div {
-  position: relative;
-  padding-left: 65px;
+/* 楼中楼嵌套边距 */
+.comment-children {
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+
+.comment-children .comment-body {
+  border-left: 3px solid var(--color-accent); /* 左侧加一条墨绿提示线，区分回复层级 */
+  background: var(--color-bg);
+}
+
+/* 头像与名字区域 */
+.comment-author {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.25rem;
 }
 
 .comment-author .avatar {
-  position: absolute;
-  left: 0;
-  top: 0;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
+  object-fit: cover;
   border: 1px solid var(--color-border-light);
 }
 
-/* 3. 名字和日期同行显示 */
-.comment-author,
-.comment-meta {
-  display: inline-block;
-  vertical-align: middle;
-}
-
-.comment-author .fn {
+.comment-author .fn,
+.comment-author .fn a {
   font-style: normal;
   font-weight: 600;
-  font-size: 1.05rem;
   color: var(--color-text);
-  margin-right: 12px; /* 姓名和日期的间隔 */
+  font-size: 1.06rem;
 }
 
-.comment-author .fn a {
-  color: var(--color-text);
-}
-
-.comment-author .fn a:hover {
-  color: var(--color-accent);
+/* 评论时间 */
+.comment-meta {
+  margin-left: 3.1rem; /* 与名字对齐 (40px头像 + 10px gap) */
+  margin-bottom: 0.75rem;
 }
 
 .comment-meta a {
@@ -1093,82 +1105,67 @@ img {
   color: var(--color-text-tertiary);
 }
 
-/* 4. 回复内容：外加独立边框，并加上淡淡的阴影 */
+/* 评论内容 */
 .comment-content {
-  margin-top: 8px;
-  padding: 12px 16px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  font-size: 0.95rem;
+  font-size: 1.06rem;
   line-height: 1.7;
-  color: var(--color-text-secondary);
-  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  color: var(--color-text);
+  overflow-wrap: anywhere;
 }
 
 .comment-content p {
+  margin-bottom: 0.75em;
+}
+
+.comment-content p:last-child {
   margin-bottom: 0;
 }
 
-/* 5. 独立的回复按钮设计 */
+/* 回复按钮 */
 .comment-reply {
-  margin-top: 8px;
+  margin-top: 0.75rem;
   text-align: right;
 }
 
 .comment-reply a {
-  font-size: 0.82rem;
+  font-size: 0.9rem;
   color: var(--color-accent);
-  background: var(--grid-color-strong); /* 呼应铁皮蛙主色调 */
-  padding: 4px 10px;
-  border-radius: 4px;
-  transition: all 0.2s;
+  font-weight: 500;
 }
 
 .comment-reply a:hover {
-  background: var(--color-accent);
-  color: #fff;
+  color: var(--color-accent-hover);
 }
 
-/* 6. 楼中楼：子评论嵌套样式 (缩进 + 左侧虚线区分，参考天空之城风格) */
-.comment-children {
-  margin-left: 65px; /* 对齐父评论的内容边界 */
-  margin-top: 1.5rem;
-  padding-left: 1.5rem;
-  border-left: 2px dashed var(--color-border-light);
-}
-
-.comment-children .comment-author .avatar {
-  width: 40px;
-  height: 40px;
-}
-
-.comment-children .comment-body > div {
-  padding-left: 55px; /* 子评论头像变小，调整左侧边距 */
-}
-
-.comment-children .comment-children {
-  margin-left: 55px; /* 更深层嵌套进一步缩进 */
-}
-
-/* --- 取消回复按钮 --- */
-.cancel-comment-reply a {
-  display: inline-block;
-  font-size: 0.85rem;
-  color: var(--color-accent-hover); /* 橙黄色 */
+/* 取消回复按钮 */
+.cancel-comment-reply {
   margin-bottom: 1rem;
 }
 
-/* --- 下方为原有的底部表单样式，保持不变 --- */
+.cancel-comment-reply a {
+  font-size: 0.9rem;
+  color: var(--color-accent-hover); /* 使用橘黄色突出显示 */
+}
+
+/* ============================================
+   Typecho Comments Form (Respond)
+   ============================================ */
+
 .comment-respond {
   margin-top: 2rem;
+  padding: 1.5rem;
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  border: 1px solid var(--color-border-light);
+  box-shadow: var(--shadow-card);
 }
 
 .comment-reply-title {
   font-family: var(--font-serif);
   font-size: 1.1rem;
   font-weight: 700;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  color: var(--color-text);
 }
 
 .comment-form p {
@@ -1177,31 +1174,33 @@ img {
 
 .comment-form label {
   display: block;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   color: var(--color-text-secondary);
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.35rem;
 }
 
 .comment-form .required {
   color: var(--color-accent);
 }
 
+/* 表单输入框 */
 .comment-form .text,
 .comment-form .textarea {
   width: 100%;
   padding: 0.6rem 0.8rem;
+  font-size: 1rem;
+  font-family: var(--font-sans);
+  color: var(--color-text);
+  background: var(--color-bg);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  background: var(--color-surface);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  font-size: 0.95rem;
+  outline: none;
   transition: border-color 0.2s;
 }
 
 .comment-form .text:focus,
 .comment-form .textarea:focus {
-  outline: none;
   border-color: var(--color-accent);
 }
 
@@ -1210,16 +1209,17 @@ img {
   min-height: 120px;
 }
 
+/* 提交按钮 */
 .comment-form .submit {
   padding: 0.6rem 1.5rem;
-  background: var(--color-accent);
-  color: var(--color-surface);
-  border: none;
-  border-radius: var(--radius);
   font-size: 0.9rem;
   font-weight: 500;
+  color: var(--color-surface);
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background-color 0.2s;
 }
 
 .comment-form .submit:hover {
@@ -1230,8 +1230,9 @@ img {
   font-size: 0.88rem;
   color: var(--color-text-secondary);
   padding: 0.6rem 0.8rem;
-  background: var(--color-surface-hover);
+  background: var(--color-bg);
   border-radius: var(--radius);
+  border: 1px solid var(--color-border-light);
 }
 
 .comments-closed {
