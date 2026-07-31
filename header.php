@@ -12,9 +12,9 @@
   ), '', ' | '); ?><?php $this->options->title(); ?></title>
   <?php $this->header(); ?>
   <link rel="icon" href="<?php $this->options->themeUrl('logo.svg'); ?>">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-gb-web@latest/lxgwwenkaigb-regular/result.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-gb-web@latest/lxgwwenkaigb-medium/result.css">
+  <link rel="preconnect" href="https://cdn.osyb.cn" crossorigin>
+  <link rel="stylesheet" href="https://cdn.osyb.cn/npm/lxgw-wenkai-gb-web@latest/lxgwwenkaigb-regular/result.css">
+  <link rel="stylesheet" href="https://cdn.osyb.cn/npm/lxgw-wenkai-gb-web@latest/lxgwwenkaigb-medium/result.css">
 
   <?php
   $options = $this->options;
